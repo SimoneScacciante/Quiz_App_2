@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="20_Quiz_App.css">
+    <script src="20_Quiz_App.js"></script>
+    <script src="20_Quiz_App_Array.js"></script>
+
+
+
+    <!-- Bootstrap file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body onload="init()">
+
+    <div class="headline">
+        <nav class="navbar navbar-light button-row">
+            <span class="mb-0 h1">QuizApp</span>
+        </nav>
+    </div>
+
+
+    <div class="container">
+
+        <!-- =========>>>>>>> Background Picture <<<<<<========= -->
+        <div class="card quiz-card ">
+            <div class="containerSub">
+                <img src="./img/backgroundImg.png" id="header-image" class="card-img-top backgroundImg">
+                <!-- Diesen Teil geändert-->
+
+
+                <!-- =========>>>>>>> Progress Bar  >>>><<<========= -->
+                <div class="progress">
+                    <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%;">25%</div>
+                </div>
+
+
+                <!-- =========>>>>>>> Endscreen ab hier  >>>><<<========= -->
+                <div class="card-body" style="display: none;" id="endScreen">
+
+                    <div>
+                        <div class="text-center final-headline">Quiz beendet!</div>
+                    </div>
+
+                    <div class="text-center">
+                        Du hast <b id="amount-of-right-questions">XXX</b> Fragen von <b id="amount-of-questions">XXX</b>
+                        richtig beantwortet
+                    </div>
+
+                    <div class="button-row">
+                        <button onclick="restartGame()" class="btn btn-primary">Erneut spielen </button>
+                    </div>
+                </div>
+                <!-- =========>>>>>>> Endscreen bis hier  >>>><<<========= -->
+
+
+
+                <!-- =========>>>>>>> QuestionBody "main-questions">>>><<<========= -->
+                <div class="card-body" id="questionBody">
+
+                    <h5 class="card-title" id="questiontext"></h5>
+
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_1')">
+                        <div class="card-body" id="answerClick_1">
+                            "Dieser Text wird überschrieben"
+                        </div>
+                    </div>
+
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_2')">
+                        <div class="card-body" id="answerClick_2">
+                        </div>
+                    </div>
+
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_3')">
+                        <div class="card-body" id="answerClick_3">
+                        </div>
+                    </div>
+
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_4')">
+                        <div class="card-body" id="answerClick_4">
+                        </div>
+                    </div>
+
+                    <!-- =========>>>>>>> QuestionBody "footer" >>>><<<========= -->
+                    <div class="question-footer">
+                        <span>
+                            <b id="pageNumber">1</b> von <b id="all-questions"> </b> Fragen
+                        </span>
+
+                        <!-- =========>>>>>>> Next Button  >>>><<<========= -->
+                        <button onclick="nextQuestion()" class="btn btn-primary" id="next-button" disabled>nächste
+                            Frage
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

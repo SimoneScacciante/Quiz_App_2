@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+
+    <!-- Bootstrap file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #007AFF;
+        }
+
+        .container {
+            min-height: 100vh;
+            background-color: #007AFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-card {
+            width: 30rem;
+        }
+
+        .question-footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+        }
+
+        .quiz-answer-card:hover {
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .mystyle {
+            background-color: red !important;
+        }
+    </style>
+
+
+</head>
+
+<body onload="init()">
+
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">QuizApp</span>
+    </nav>
+
+    <div class="container">
+        <div class="card quiz-card">
+            <img class="card-img-top" src="./img/backgroundImg.png" alt="Card image cap">
+
+            <div class="card-body">
+                <h5 class="card-title" id="questiontext"> Frage: </h5>
+
+                <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_1')">
+                    <div class="card-body" id="answer_1_ID">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_2')">
+                    <div class="card-body" id="answer_2_ID">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_3')">
+                    <div class="card-body" id="answer_3_ID">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="card quiz-answer-card mb-2" onclick="answer('answerClick_4')">
+                    <div class="card-body" id="answer_4_ID">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="question-footer">
+                    <span>
+                        <b>1</b> von <b id="all-questions"> </b> Fragen <!-- = questions.length-->
+                    </span>
+
+                    <button class="btn btn-primary">nächste Frage</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let questionsArray = [{
+            "question": "Wer hat HTML erfunden",
+            "answer_1": "Robbie Williams",
+            "answer_2": "Lady Gaga",
+            "answer_3": "Tim Bernsers-Lee",
+            "answer_4": "Justin Bieber",
+            "right_answer": 3,
+        },
+
+        {
+            "question": "Was bedeutet das HTML Tag &lt;a&gt;?",
+            "answer_1": "Text fett",
+            "answer_2": "Container",
+            "answer_3": "Ein Link",
+            "answer_4": "Kursiv",
+            "right_answer": 3,
+        },
+
+        {
+            "question": "Welches Attribut kan man NICHT für Textarea verwenden?",
+            "answer_1": "readonly",
+            "answer_2": "max",
+            "answer_3": "from",
+            "answer_4": "spellcheck",
+            "right_answer": 1,
+        },
+
+        {
+            "question": "Wie wählst du alle Elemente vom Typ &lt;a&gt; mit dem attribut title aus?",
+            "answer_1": "a[title]{...}",
+            "answer_2": "a > title {...}",
+            "answer_3": "a.title {...}",
+            "answer_4": "a=title {...}",
+            "right_answer": 1,
+        },
+
+        {
+            "question": "wie definiert man in Javascript eine Variable?",
+            "answer_1": "let 100 = rate",
+            "answer_2": "100 = let rate",
+            "answer_3": "rate = 100",
+            "answer_4": "let rate = 100",
+            "right_answer": 4,
+        },
+        ];
+
+
+        let currentQuestion = 0;
+
+        function init() {
+            document.getElementById('all-questions').innerHTML = questionsArray.length
+
+            showQuestion();
+            showAnswer();
+        }
+
+        function showQuestion() {
+            let question = questionsArray[currentQuestion];
+
+            document.getElementById('questiontext').innerHTML = question['question'];
+        }
+
+        function showAnswer() {
+            let question = questionsArray[currentQuestion];
+
+            document.getElementById('answer_1_ID').innerHTML = question['answer_1'];
+            document.getElementById('answer_2_ID').innerHTML = question['answer_2'];
+            document.getElementById('answer_3_ID').innerHTML = question['answer_3'];
+            document.getElementById('answer_4_ID').innerHTML = question['answer_4'];
+
+
+        }
+
+        function answer(answerSelection) {
+            let question = questionsArray[currentQuestion];
+
+            console.log('selected answer is ', answerSelection) // answerClick_??? = erscheint
+            console.log('Current answer is ', question) // nur erster Kapitel erscheint
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzie</title>
+    <!--Favicon-->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <!-- Bootstrap Files-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style_test.css">
+    <script src="script_test.js"></script>
+    <script src="quest_array.js"></script>
+</head>
+
+<body onload="init()">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid center">
+            <span class="navbar-brand mb-0 h1">Quizzie</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card mb-3 quiz-card">
+            <div class="row g-0">
+
+                <div class="col-md-4 sidebar">
+                    <img src="img/logo.png">
+                    <div class="sidebartop">
+
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div id="quizContainer">
+
+                        <div class="card-body" id="endScreen" style="display: none;">
+
+                            <div class="center">
+                                <img class="logo" src="img/brain result.png" alt="">
+                            </div>
+
+                            <div class="text-center final-headline">
+                                Du hast das Quiz beeendet!
+                            </div>
+
+
+                            <div class="d-end">
+                                <img class="height-120px" src="img/trophy.png" alt="">
+                            </div>
+
+                            <div class="text-center">
+                                Du hast <b id="amount-of-right-questions"></b> von <b id="amount-of-questions"></b> Fragen richtig beantwortet
+                            </div>
+
+                            <div class="button-row">
+                                <button class="btn btn-primary btn-lg" onclick="restartGame()">Erneut starten?</button>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body fullimg" id="startScreen">
+                            <div class="text-center final-headline">
+                                <b>Willkommen zu einem kleinen Quiz!</b>
+                            </div>
+
+                            <div class="button-row">
+                                <button class="btn btn-primary btn-lg" onclick="startGame()">Spiel starten</button>
+                            </div>
+                        </div>
+                        <div class="card-body" id="questionBody" style="display: none;">
+                            <h5 class="card-title" id="questiontext">Frage</h5>
+
+                            <div class="card quiz-answer-card mb-2" onclick="answer(1)">
+                                <div class="card-body" id="answer_1">
+                                    Antwort
+                                </div>
+                            </div>
+
+                            <div class="card quiz-answer-card mb-2" onclick="answer(2)">
+                                <div class="card-body" id="answer_2">
+                                    Antwort
+                                </div>
+                            </div>
+
+                            <div class="card quiz-answer-card mb-2" onclick="answer(3)">
+                                <div class="card-body" id="answer_3">
+                                    Antwort
+                                </div>
+                            </div>
+
+                            <div class="card quiz-answer-card mb-2" onclick="answer(4)">
+                                <div class="card-body" id="answer_4">
+                                    Antwort
+                                </div>
+                            </div>
+
+
+                            <div class="progress">
+                                <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"> 0%
+                                </div>
+                            </div>
+
+                            <div class="question-footer">
+                                <span>
+                                    <b id="question">1</b> von <b id="max-questions">5</b> Fragen
+                                </span>
+                                <div class="cursor-not-allowed">
+                                    <button class="btn btn-primary btn-lg" id="next-button" disabled onclick="nextQuestion()">Nächste Frage</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
